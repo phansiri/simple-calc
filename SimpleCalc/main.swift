@@ -12,12 +12,9 @@ print("Enter an expression separated by returns")
 
 var container = [String]()
 var firstNum = readLine(strippingNewline: true)!
-var secondNum:String?
-var thirdNum:String?
 
 func calculate(container:Array<String>) -> String {
     let result:String = "Result: "
-//    print("Before If statement: \(container)")
 
     if container.contains("+") {
         return result + "\(Int(container[0])! + Int(container[2])!)"
@@ -30,7 +27,6 @@ func calculate(container:Array<String>) -> String {
     } else if container.contains("%") {
         return result + "\(Int(container[0])! % Int(container[2])!)"
     } else if container.contains("count") {
-//        print("inside count")
         var tempContainer = container
         tempContainer.removeLast()
         return "=> \(tempContainer.count)"
@@ -57,6 +53,7 @@ if temp.count > 1 { // more values than 1
         var tempNum = readLine(strippingNewline: true)!
         container.append(tempNum)
     }
-}; print(calculate(container: container))
+}
+print(calculate(container: container))
 
 
