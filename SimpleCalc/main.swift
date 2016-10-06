@@ -17,34 +17,46 @@ var thirdNum:String?
 
 func calculate(container:Array<String>) -> String {
     let result:String = "Result: "
-    let valueOne = Int32(container[0])!
-    let valueTwo = Int32(container[2])!
-    
+//    print("Before If statement: \(container)")
+
     if container.contains("+") {
-        return result + "\(valueOne + valueTwo)"
+        return result + "\(Int(container[0])! + Int(container[2])!)"
     } else if container.contains("-") {
-        return result + "\(valueOne - valueTwo)"
+        return result + "\(Int(container[0])! - Int(container[2])!)"
     } else if container.contains("*") {
-        return result + "\(valueOne * valueTwo)"
+        return result + "\(Int(container[0])! * Int(container[2])!)"
     } else if container.contains("/") {
-        return result + "\(Double(valueOne) / Double(valueTwo))"
+        return result + "\(Double(container[0])! / Double(container[2])!)"
     } else if container.contains("%") {
-        return result + "\(valueOne % valueTwo)"
+        return result + "\(Int(container[0])! % Int(container[2])!)"
+    } else if container.contains("count") {
+//        print("inside count")
+        var tempContainer = container
+        tempContainer.removeLast()
+        return "=> \(tempContainer.count)"
+    } else if container.contains("avg") {
+        var tempContainer = container
+        tempContainer.removeLast()
+        var averageCount:Int32 = 0
+        for i in 0...tempContainer.count - 1 {
+            let number = Int32(tempContainer[i])!
+            averageCount += number
+        }
+        return "=> \(Double(averageCount) / Double(tempContainer.count))"
     }
-    return "did not work"
+    return "did not work...please run the program again"
 }
 
 let splitInputs = firstNum.characters.split(separator: " ")
-
 var temp = splitInputs.map(String.init)
 if temp.count > 1 { // more values than 1
+    container = temp
 } else {
     container.append(temp[0])
     for i in 1...2 {
         var tempNum = readLine(strippingNewline: true)!
         container.append(tempNum)
     }
-}
-print(calculate(container: container))
+}; print(calculate(container: container))
 
 
