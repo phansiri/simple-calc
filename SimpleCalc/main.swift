@@ -13,7 +13,7 @@ var operations = ["+", "-", "*", "/", "%", "avg", "count", "fact"]
 
 // does the calculations from given array and returns the result
 func calculate(container:Array<String>) -> String {
-    let result:String = "Result: "
+    var result:String = "Result: "
     if container.contains("+") {
         return result + "\(Int(container[0])! + Int(container[2])!)"
     } else if container.contains("-") {
