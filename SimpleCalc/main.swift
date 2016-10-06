@@ -11,8 +11,8 @@ import Foundation
 print("Enter an expression separated by returns")
 
 var container = [String]()
-var operations = ["+", "-", "*", "/", "%"]
-var multiOperations = ["avg", "count", "fact"]
+var operations = ["+", "-", "*", "/", "%", "avg", "count", "fact"]
+//var multiOperations = ["avg", "count", "fact"]
 
 
 func calculate(container:Array<String>) -> String {
