@@ -13,14 +13,10 @@ print("Enter an expression separated by returns")
 var first = readLine(strippingNewline: true)!
 let second = readLine(strippingNewline: true)!
 var third = readLine(strippingNewline: true)!
-
 var result:Int32?
 
-let numFirst:Int32 = Int32(first)!
-let numThird:Int32 = Int32(third)!
-
-let equations = ["add"]
-
+let numFirst = Int32(first)!
+let numThird = Int32(third)!
 
 if second == "%" {
     result = numFirst % numThird
@@ -35,4 +31,4 @@ if second == "%" {
 }
 
 
-print("Result \(first) \(second) \(third) = \(result!)")
+print("Result: \(first) \(second) \(third) = \(result!)")
