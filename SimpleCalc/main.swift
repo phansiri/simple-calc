@@ -32,8 +32,45 @@ print("Enter an expression separated by returns")
 //
 //print("Result: \(first) \(second) \(third) = \(result!)")
 
-let inputs = readLine(strippingNewline: true)!
-let splitInputs = inputs.characters.split(separator: " ")
-print(splitInputs.map(String.init))
+var container = [String]()
+
+var firstNum = readLine(strippingNewline: true)!
+var secondNum:String?
+var thirdNum:String?
+
+func calculate(container:Array<String>) -> String {
+    let result:String = "Result: "
+    let valueOne = Int32(container[0])!
+    let valueTwo = Int32(container[2])!
+    
+    if container.contains("+") {
+        return result + "\(valueOne + valueTwo)"
+    } else if container.contains("-") {
+        return result + "\(valueOne - valueTwo)"
+    } else if container.contains("*") {
+        return result + "\(valueOne * valueTwo)"
+    } else if container.contains("/") {
+        return result + "\(Double(valueOne) / Double(valueTwo))"
+    } else if container.contains("%") {
+        return result + "\(valueOne % valueTwo)"
+    }
+    return "did not work"
+}
+
+let splitInputs = firstNum.characters.split(separator: " ")
+
+var temp = splitInputs.map(String.init)
+if temp.count > 1 { // more values than 1
+//    print("inside more than 1: \(temp)")
+} else {
+    container.append(temp[0])
+//    print("only one value...add 2 more \(container)")
+    for i in 1...2 {
+        var tempNum = readLine(strippingNewline: true)!
+        container.append(tempNum)
+//        print("\(i)th value: \(container) ")
+    }
+}
+print(calculate(container: container))
 
 
