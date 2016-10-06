@@ -10,30 +10,7 @@ import Foundation
 
 print("Enter an expression separated by returns")
 
-//var first = readLine(strippingNewline: true)!
-//let second = readLine(strippingNewline: true)!
-//var third = readLine(strippingNewline: true)!
-//var result:Int32?
-//
-//let numFirst = Int32(first)!
-//let numThird = Int32(third)!
-//
-//if second == "%" {
-//    result = numFirst % numThird
-//} else if second == "-" {
-//    result = numFirst - numThird
-//} else if second == "*" {
-//    result = numFirst * numThird
-//} else if second == "/" {
-//    result = numFirst / numThird
-//} else { // plus
-//    result = numFirst + numThird
-//}
-//
-//print("Result: \(first) \(second) \(third) = \(result!)")
-
 var container = [String]()
-
 var firstNum = readLine(strippingNewline: true)!
 var secondNum:String?
 var thirdNum:String?
@@ -61,14 +38,11 @@ let splitInputs = firstNum.characters.split(separator: " ")
 
 var temp = splitInputs.map(String.init)
 if temp.count > 1 { // more values than 1
-//    print("inside more than 1: \(temp)")
 } else {
     container.append(temp[0])
-//    print("only one value...add 2 more \(container)")
     for i in 1...2 {
         var tempNum = readLine(strippingNewline: true)!
         container.append(tempNum)
-//        print("\(i)th value: \(container) ")
     }
 }
 print(calculate(container: container))
